@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RateMyDiningHall | Review</title>
+    <!--<script src="https://use.fontawesome.com/5cd833ef09.js"></script>-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+    <!-- Import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <section class="hero is-small has-background-white-ter has-text-centered">
+      <div class="hero-body">
+        <div class="search is-offset-one-quarter">
+          <div id="search-container">
+            <object align="right">
+              <form method="POST" action="#">
+                <input id="topSearch" class="input is-hovered is-rounded" type="text" placeholder="Search for your school" />
+              </form>
+            </object>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="columns">
+      <div class="column is-three-fifths is-offset-one-fifth">
+        <div style="text-align: center">
+          <p class="title is-2"> Write a review! </p>
+        </div>
+        <div>
+          <input id="schoolName" type="text" class="input is-rounded" placeholder="School Name" />
+          <input id="dormName" type="text" class="input is-rounded" placeholder="Your Dorm" />
+          <div class="control">
+            <p> Rating </p>
+            <label class="radio">
+              <input type="radio" name="answer" /> 1 </label>
+            <label class="radio">
+              <input type="radio" name="answer" /> 2 </label>
+            <label class="radio">
+              <input type="radio" name="answer" /> 3 </label>
+            <label class="radio">
+              <input type="radio" name="answer" /> 4 </label>
+            <label class="radio">
+              <input type="radio" name="answer" /> 5 </label>
+          </div>
+          <textarea class="textarea" placeholder="Write your review."></textarea>
+        </div>
+        <div id="submitButton">
+          <a class="button is-normal is-fullwidth has-background-link-dark has-text-white">Submit Review</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
