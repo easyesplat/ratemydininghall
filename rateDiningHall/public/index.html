@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css" />
+    <script defer src="/__/firebase/8.3.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/8.3.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/8.3.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <script src="js/signIn.js"></script>
   </head>
   <body>
     <section class="hero eating-banner">
@@ -19,7 +25,7 @@
             <p class="eating-title has-text-left-desktop"> Rate My Dining Hall </p>
           </div>
           <div class="level-right">
-            <button id="log-in" class="button">Log In</button>
+            <button id="log-in" class="button" onclick="signIn()">Log In</button>
           </div>
         </nav>
       </div>
