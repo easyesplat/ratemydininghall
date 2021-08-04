@@ -16,6 +16,7 @@
     <script defer src="/__/firebase/8.3.1/firebase-database.js"></script>
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
     <script src="js/signIn.js"></script>
+    <script src="js/viewUserReviews.js"></script>
   </head>
   <body>
     <section class="hero eating-banner">
@@ -31,10 +32,8 @@
             </figure>
             <!-- <p class="eating-title has-text-left-desktop"> Rate My Dining Hall </p>-->
           </div>
-          <div class="level-right">
-            <!--  
-            <button id="log-in" class="button" onclick="signIn()">Log In</button>
-             -->
+          <div class="level-right">  
+            <!--<button id="log-in" class="button" onclick="signIn()">Log In</button>-->
           </div>
         </nav>
       </div>
@@ -52,6 +51,9 @@
       </div>
       <div class="container">
         <a id="review-link" onclick="signIn()">Write a Review</a>
+      </div>
+      <div class="container">
+        <a id="reviews-link" href="viewReviews.html"><button type="button">View Your Reviews</button></a>
       </div>
       <div class="container"></div>
       <div class="container">
