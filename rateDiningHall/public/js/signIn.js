@@ -1,5 +1,5 @@
 const signIn = () => {
-  console.log("click")
+  console.log("click");
   var provider = new firebase.auth.GoogleAuthProvider();
   // console.log(provider)
   firebase.auth()
