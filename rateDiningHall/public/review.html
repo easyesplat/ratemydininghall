@@ -15,7 +15,7 @@
     <script defer src="/__/firebase/8.3.1/firebase-auth.js"></script>
     <script defer src="/__/firebase/8.3.1/firebase-database.js"></script>
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-    <script src="js/review.js"></script>
+    <script defer src="js/review.js"></script>
   </head>
   <body>
     <section class="hero is-small has-background-white-ter has-text-centered">
@@ -38,6 +38,7 @@
         </div>
       </div>
     </section>
+
     <div class="columns">
       <div class="column is-three-fifths is-offset-one-fifth">
         <div style="text-align: center">
@@ -46,6 +47,7 @@
         <div>
           <input id="schoolName" type="text" class="input is-rounded" placeholder="School Name" />
           <input id="diningName" type="text" class="input is-rounded" placeholder="Your Dining Hall" />
+          <input id="foodName" type="text" class="input is-rounded" placeholder="Your Meal" />
           <div class="control">
             <p> Rating </p>
             <label class="radio">
@@ -60,6 +62,26 @@
               <input type="radio" name="answer" value = 5/> 5 </label>
           </div>
           <textarea id="revText" class="textarea" placeholder="Write your review."></textarea>
+          <input id="picLink" type="text" class="input is-rounded" placeholder="Link to a picture of your school (optional)">
+          <p>
+              Or, Upload your own picture
+          </p>
+          <div id="file" class="file has-name">
+            <label class="file-label">
+              <input class="file-input" type="file" name="resume">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Choose a file…
+                </span>
+              </span>
+              <span class="file-name">
+                No file uploaded
+              </span>
+            </label>
+          </div>
         </div>
         <div id="submitButton">
           <button type="button" id="subButton" class="button is-normal is-fullwidth has-background-link-dark has-text-white" onclick="getInfo()">Submit Review!</button>
