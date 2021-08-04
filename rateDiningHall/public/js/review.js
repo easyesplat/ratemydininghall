@@ -1,16 +1,16 @@
 let googleUser;
 
-//window.onload = (event) => {
-    // Use this to retain user state between html pages.
-   // firebase.auth().onAuthStateChanged(function(user) {
-    //    if (user) {
-    //        console.log('Logged in as: ' + user.displayName);
-   //         googleUser = user;
-   //     } else {
- //           window.location = 'index.html'; // If not logged in, navigate back to login page.
-  //      }
-  //  });
-//};
+window.onload = (event) => {
+     //Use this to retain user state between html pages.
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            console.log('Logged in as: ' + user.displayName);
+            googleUser = user;
+        } else {
+            window.location = 'index.html'; // If not logged in, navigate back to login page.
+        }
+    });
+};
 console.log("js loaded");
 
 /*const button = document.querySelector("#subButton");
@@ -31,7 +31,7 @@ const getInfo = () => {
     const reviewText = document.querySelector("#revText").value;
     const rating = ratingValue();
     const picLink = document.querySelector("#picLink").value;
-
+    console.log(typeof picLink)
     //push the information to the firebase
     firebase.database().ref(`users/${googleUser.uid}`).push({
             School: school,
@@ -44,12 +44,16 @@ const getInfo = () => {
     firebase.database().ref(`colleges/${school}/dininghall/${hall}`).push({
             Rating: rating,
             Review: reviewText,
-            UserId: googleUser.uid
+            UserId: googleUser.uid,
+    })
+    firebase.database().ref(`collegephoto/${school}/photos`).push({
+        Picture: picLink
     })
         .then(() => {
             document.querySelector("#schoolName").value = "";
             document.querySelector("#diningName").value = "";
             document.querySelector("#revText").value = "";
+            document.querySelector("#picLink").value = "";
         });
 }
 
