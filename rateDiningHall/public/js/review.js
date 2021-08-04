@@ -30,6 +30,11 @@ const getInfo = () => {
             Review: reviewText
         })
         // 3. Clear the form so that we can write a new note
+    firebase.database().ref(`colleges/${school}/dininghall/${hall}`).push({
+            Rating: rating,
+            Review: reviewText,
+            UserId: googleUser.uid
+    })
         .then(() => {
             document.querySelector("#schoolName").value = "";
             document.querySelector("#diningName").value = "";
