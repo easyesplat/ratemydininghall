@@ -28,11 +28,11 @@ const renderData = (data, location) => {
 };
 
 const createCard = (hall) => {
-    /*edit this to return name and other variables based on hall*/
+
     return `<div class = "card is-small has-background-white-ter" style = "padding: 20px;" onclick = "goToHall(hall)"> 
                         <div style = "width: 100%;">
                           <div style="width: 30%; float: left;">
-                            <p style = "color: BLACK; text-align: center; font-size: 1.1rem;"> Dining Hall Name (5 reviews) </p>
+                            <p style = "color: BLACK; text-align: center; font-size: 1.1rem;"> ${hall.name} (${hall.name.length} reviews) </p>
                           </div>
                           <div style="margin-left: 30%;"> 
                               <div style="width: 150px;">
@@ -47,7 +47,7 @@ const createCard = (hall) => {
 };
 
 const createBox = (review) => {
-    /*edit this to return name and other variables based on review*/
+
     return `<div class = "box" style = "padding: 20px;"> 
                               <div style="width: 150px;">
                                 <div style="width: 50%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
@@ -57,21 +57,100 @@ const createBox = (review) => {
                               </div>
                               <div>
                                 <p id = "collegeInfo">
-                                  Dish: dish name (meal)
+                                  Dish: ${review.dish}
                                 </p>
                                 <br>
                                 <p style = "padding-left: 5px;">
-                                  blahblahbblahblahblahblaasdlfkjsdl;fkjsdlafkjlskdfjlsadkjfdsjfsdaflkjasd;flkjads;lkfjsdlakfjdsal;kjf
+                                 ${review.content}
                                 </p>
                                 <br>
                                 <p style = "font-size: .75rem;">
-                                  Reviewed by a person on 08/09/2021
+                                  Reviewed by ${review.userId}
                                 </p>
                  </div>
                  </div>`;
 }
 
+const createDiningHallInfo = (hall) => {
+    return `<h1 id = "collegeTitleCard">
+              ${hall.name}
+            </h1>
+            <br>
+            <div style = "width: 100%;">
+                          <div style="width: 30%; float: left;">
+                            <p id = "collegeInfo"> Overall: </p>
+                          </div>
+                          <div style="margin-left: 30%;"> 
+                              <div style="width: 150px;">
+                                <div style="width: 50%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
+                                </div>
+                                <div style="margin-left: 50%;" id = "forkRatingRight"> 
+                                </div>
+                              </div>
+                          </div>
+            </div>
+            <hr>
+            <div style = "width: 100%;">
+                          <div style="width: 30%; float: left;">
+                            <p id = "collegeInfo"> Breakfast: </p>
+                          </div>
+                          <div style="margin-left: 30%;"> 
+                              <div style="width: 150px;">
+                                <div style="width: 50%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
+                                </div>
+                                <div style="margin-left: 50%;" id = "forkRatingRight"> 
+                                </div>
+                              </div>
+                          </div>
+            </div>
+            <div style = "width: 100%;">
+                          <div style="width: 30%; float: left;">
+                            <p id = "collegeInfo"> Lunch: </p>
+                          </div>
+                          <div style="margin-left: 30%;"> 
+                              <div style="width: 150px;">
+                                <div style="width: 50%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
+                                </div>
+                                <div style="margin-left: 50%;" id = "forkRatingRight"> 
+                                </div>
+                              </div>
+                          </div>
+            </div>
+            <div style = "width: 100%;">
+                          <div style="width: 30%; float: left;">
+                            <p id = "collegeInfo"> Dinner: </p>
+                          </div>
+                          <div style="margin-left: 30%;"> 
+                              <div style="width: 150px;">
+                                <div style="width: 50%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
+                                </div>
+                                <div style="margin-left: 50%;" id = "forkRatingRight"> 
+                                </div>
+                              </div>
+                          </div>
+            </div>
+            <div style = "width: 100%;">
+                          <div style="width: 30%; float: left;">
+                            <p id = "collegeInfo"> Dessert: </p>
+                          </div>
+                          <div style="margin-left: 30%;"> 
+                              <div style="width: 150px;">
+                                <div style="width: 50%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
+                                </div>
+                                <div style="margin-left: 50%;" id = "forkRatingRight"> 
+                                </div>
+                              </div>
+                          </div>
+            </div>
+            <hr>
+            <p id = "collegeInfo">
+            Best dish at this dining hall:
+            </p>`;
+}
+
 const goToHall = (hall) => {
     renderData(hall, '#appDining');
+    diningHallInfo = document.querySelector('#appDiningHallInfo');
+    diningHallInfo.innerHTML = createDiningHallInfo(hall);
     window.location = "diningHall.html";
 }
