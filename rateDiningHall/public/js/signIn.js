@@ -11,7 +11,7 @@ const signIn = () => {
 
     // The signed-in user info.
     var user = result.user;
-    window.location = 'writeReview.html';
+    window.location = 'review.html';
   }).catch((error) => {
     // Handle Errors here.
     var errorCode = error.code;

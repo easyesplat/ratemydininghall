@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
     <!-- Import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css" />
+    <!--Import the firebase-->
+    <script defer src="/__/firebase/8.3.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/8.3.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/8.3.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <script src="js/review.js"></script>
   </head>
   <body>
     <section class="hero is-small has-background-white-ter has-text-centered">
@@ -42,20 +49,21 @@
           <div class="control">
             <p> Rating </p>
             <label class="radio">
-              <input type="radio" name="answer" /> 1 </label>
+              <input type="radio" name="answer" value = 1/> 1 </label>
             <label class="radio">
-              <input type="radio" name="answer" /> 2 </label>
+              <input type="radio" name="answer" value = 2/> 2 </label>
             <label class="radio">
-              <input type="radio" name="answer" /> 3 </label>
+              <input type="radio" name="answer" value = 3/> 3 </label>
             <label class="radio">
-              <input type="radio" name="answer" /> 4 </label>
+              <input type="radio" name="answer" value =4/> 4 </label>
             <label class="radio">
-              <input type="radio" name="answer" /> 5 </label>
+              <input type="radio" name="answer" value = 5/> 5 </label>
           </div>
           <textarea id="revText" class="textarea" placeholder="Write your review."></textarea>
         </div>
         <div id="submitButton">
-          <a id="subButton"class="button is-normal is-fullwidth has-background-link-dark has-text-white">Submit Review</a>
+          <button type="button" id="subButton" class="button is-normal is-fullwidth has-background-link-dark has-text-white" onclick="getInfo()">Submit Review!</button>
+          <!--<a id="subButton"class="button is-normal is-fullwidth has-background-link-dark has-text-white">Submit Review</a>-->
         </div>
       </div>
     </div>
