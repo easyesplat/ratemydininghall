@@ -1,6 +1,6 @@
 window.onload = (event) => {
   //figure out how we are structuring the data in the database
-  //const diningHallsRef = firebase.database().ref(`users/${googleUser.uid}`);
+  const diningHallsRef = firebase.database().ref(`users/${googleUser.uid}`);
   diningHallsRef.on('value', (snapshot) => {
     const data = snapshot.val();
     renderData(data, '#app');
