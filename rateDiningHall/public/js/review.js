@@ -43,13 +43,26 @@ const getInfo = () => {
             Meal: meal
         })
         // 3. Clear the form so that we can write a new note
+    
+    //     firebase.database().ref(`colleges/${school}`).push({
+            
+    //             'dininghall': {
+    //                 hall:{
+    //                     'meal': meal,
+    //                     'Rating': rating,
+    //                     'Review': reviewText,
+    //                 }
+    //             },
+    //             'photo': picLink
+    //     })
+    // }
     firebase.database().ref(`colleges/${school}/dininghall/${hall}`).push({
             Rating: rating,
             Review: reviewText,
             Meal: meal,
             UserId: googleUser.uid,
     })
-    firebase.database().ref(`collegephoto/${school}/photos`).push({
+    firebase.database().ref(`colleges/${school}/photos`).push({
         Picture: picLink
     })
         .then(() => {
