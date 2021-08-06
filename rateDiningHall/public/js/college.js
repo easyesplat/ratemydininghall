@@ -18,7 +18,7 @@ changePicture = (data) => {
     }
     myImage = document.querySelector("#collegeImage");
     myImage.innerHTML = `<figure class="image">
-              <img style = "height: 500px; padding-top: 25px;" src = "${img}" alt = "college dining hall">
+              <img style = "max-width: 55%; height: auto; display: block; margin-left: auto; margin-right:auto" src = "${img}" alt = "college dining hall">
             </figure>`;
 }
 

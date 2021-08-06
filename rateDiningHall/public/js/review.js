@@ -25,7 +25,25 @@ button.addEventListener('click', getInfo());*/
     }
 
 const getInfo = () => {
-    const school = document.querySelector("#schoolName").value;
+    let school = document.querySelector("#schoolName").value;
+    if(school == "ucla" || school == "UC Los Angeles" || school == "Ucla"||school == "UCLA")
+        school = 'UCLA';
+    else if(school == 'harvard'||school == 'Harvard')
+        school = 'Harvard';
+    else if(school == 'stanford'||school == 'Stanford')
+        school = 'Stanford';
+    else if(school == 'UC Berkeley'||school == "uc berkeley" || school == 'Uc Berkeley' || school == 'UC berkeley' || school == 'berkeley' || school == 'Berkeley' || school == 'Uc berkeley' || school == 'ucb' || school == 'UCB')
+        school = 'UC Berkeley';
+    else if(school == 'UC davis' || school == 'uc davis' || school == 'Uc Davis'|| school == 'UC Davis' || school == 'ucd' || school == 'UCD')
+        school = 'UC Davis';
+    else if(school == 'UC Merced' || school == 'UC merced' || school == 'uc merced' || school == 'uc Merced' || school == 'ucm' || school == 'UCM')
+        school = 'UC Merced';
+    else if(school == 'UC Riverside' || school == "UC riverside" || school == 'uc Riverside' || school == 'uc riverside' || school == 'ucr' || school == 'UCR')
+        school = 'UC Riverside';
+    else if(school == "UC San Diego" || school == "uc san diego" || school == 'UC san diego' || school == 'UCSD' || school == 'ucsd')
+        school = 'UC San Diego';
+    else 
+        school = school.toUpperCase();
     const hall = document.querySelector("#diningName").value;
     const food = document.querySelector("#foodName").value;
     const reviewText = document.querySelector("#revText").value;
@@ -56,22 +74,23 @@ const getInfo = () => {
     //             'photo': picLink
     //     })
     // }
+    if(picLink != ""){
+    firebase.database().ref(`colleges/${school}/photos`).push({
+        Picture: picLink
+    })}
     firebase.database().ref(`colleges/${school}/dininghall/${hall}`).push({
             Rating: rating,
             Review: reviewText,
             Meal: meal,
             UserId: googleUser.uid,
     })
-    firebase.database().ref(`colleges/${school}/photos`).push({
-        Picture: picLink
-    })
-        .then(() => {
-            document.querySelector("#schoolName").value = "";
-            document.querySelector("#diningName").value = "";
-            document.querySelector("#revText").value = "";
-            document.querySelector("#picLink").value = "";
-            document.querySelector("#foodName").value = "";
-        });
+    .then(() => {
+        document.querySelector("#schoolName").value = "";
+        document.querySelector("#diningName").value = "";
+        document.querySelector("#revText").value = "";
+        document.querySelector("#picLink").value = "";
+        document.querySelector("#foodName").value = "";
+    });
 }
 
 const ratingValue = () => {
