@@ -16,6 +16,7 @@
     <script defer src="/__/firebase/8.3.1/firebase-database.js"></script>
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
     <script defer src="js/review.js"></script>
+    <script defer src="js/collegeAndDining.js"></script>
   </head>
   <body>
     <section class="hero is-small has-background-white-ter has-text-centered">
@@ -24,7 +25,7 @@
           <div id="search-container">
             <object align="right">
               <form method="POST" action="#">
-                <input id="topSearch" class="input is-hovered is-rounded" type="text" placeholder="Search for your school" />
+                <input id="topSearch" class="input is-hovered is-rounded" type="text" placeholder="Search for your school" onchange = "openCollege(search.value)"/>
               </form>
             </object>
             <figure class="image">
