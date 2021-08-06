@@ -31,25 +31,46 @@ const getInfo = () => {
     const reviewText = document.querySelector("#revText").value;
     const rating = ratingValue();
     const picLink = document.querySelector("#picLink").value;
-
+    const meal = document.querySelector("#foodName").value;
+    console.log(typeof picLink)
     //push the information to the firebase
     firebase.database().ref(`users/${googleUser.uid}`).push({
             School: school,
             DiningHall: hall,
             Rating: rating,
             Review: reviewText,
-            Picture: picLink
+            Picture: picLink,
+            Meal: meal
         })
         // 3. Clear the form so that we can write a new note
+    
+    //     firebase.database().ref(`colleges/${school}`).push({
+            
+    //             'dininghall': {
+    //                 hall:{
+    //                     'meal': meal,
+    //                     'Rating': rating,
+    //                     'Review': reviewText,
+    //                 }
+    //             },
+    //             'photo': picLink
+    //     })
+    // }
     firebase.database().ref(`colleges/${school}/dininghall/${hall}`).push({
             Rating: rating,
             Review: reviewText,
-            UserId: googleUser.uid
+            Meal: meal,
+            UserId: googleUser.uid,
+    })
+    firebase.database().ref(`colleges/${school}/photos`).push({
+        Picture: picLink
     })
         .then(() => {
             document.querySelector("#schoolName").value = "";
             document.querySelector("#diningName").value = "";
             document.querySelector("#revText").value = "";
+            document.querySelector("#picLink").value = "";
+            document.querySelector("#foodName").value = "";
         });
 }
 

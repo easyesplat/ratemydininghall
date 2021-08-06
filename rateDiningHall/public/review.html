@@ -45,9 +45,18 @@
           <p class="title is-2"> Write a review! </p>
         </div>
         <div>
-          <input id="schoolName" type="text" class="input is-rounded" placeholder="School Name" />
-          <input id="diningName" type="text" class="input is-rounded" placeholder="Your Dining Hall" />
-          <input id="foodName" type="text" class="input is-rounded" placeholder="Your Meal" />
+          <div class = "school">
+            <h2>School Name:</h2>
+            <input id="schoolName" type="text" class="input is-rounded" placeholder="School Name" />
+          </div>
+          <div class = "DiningHall">
+            <h2>Dining Hall Name:</h2>
+            <input id="diningName" type="text" class="input is-rounded" placeholder="Your Dining Hall" />
+          </div>
+          <div class = "Meal">
+            <h2>Meal Type Name:</h2>
+            <input id="foodName" type="text" class="input is-rounded" placeholder="Breakfast, Lunch, or Dinner" />
+          </div>
           <div class="control">
             <p> Rating </p>
             <label class="radio">
@@ -61,7 +70,9 @@
             <label class="radio">
               <input type="radio" name="answer" value = 5/> 5 </label>
           </div>
-          <textarea id="revText" class="textarea" placeholder="Write your review."></textarea>
+          <div class = 'review'>
+            <textarea id="revText" class="textarea" placeholder="Write your review."></textarea>
+          </div>
           <input id="picLink" type="text" class="input is-rounded" placeholder="Link to a picture of your school (optional)">
           <p>
               Or, Upload your own picture
@@ -84,9 +95,22 @@
           </div>
         </div>
         <div id="submitButton">
-          <button type="button" id="subButton" class="button is-normal is-fullwidth has-background-link-dark has-text-white" onclick="getInfo()">Submit Review!</button>
+          <button type="button" id="subButton" class="button is-normal is-fullwidth has-background-success-dark has-text-white" onclick="getInfo()">Submit Review!</button>
           <!--<a id="subButton"class="button is-normal is-fullwidth has-background-link-dark has-text-white">Submit Review</a>-->
         </div>
+        <div id="submitButton">
+            <a id="reviews-link" href="viewReviews.html"><button type="button" class="button is-normal is-fullwidth has-background-link-dark has-text-white">View Your Reviews</button></a> 
+           <!--- <button type="button" id="subButton" class="button is-normal is-fullwidth has-background-link-dark has-text-white" onclick="getInfo()">Submit Review!</button>
+           <a id="subButton"class="button is-normal is-fullwidth has-background-link-dark has-text-white">Submit Review</a>-->
+        </div>
     </div>
+    </div>
+    <!--
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <a id="reviews-link" href="viewReviews.html"><button type="button">View Your Reviews</button></a> 
+        </div>
+    </footer>
+-->
   </body>
 </html>
