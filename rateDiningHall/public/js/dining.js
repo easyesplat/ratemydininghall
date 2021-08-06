@@ -61,7 +61,8 @@ const createBox = (review) => {
 }
 
 const createDiningHallInfo = () => {
-    return `<h1 id = "collegeTitleCard">
+    let diningInfoCard = document.querySelector("#appDiningHallInfo");
+    diningInfoCard.innerHTML = `<h1 id = "collegeTitleCard">
               ${hallName}
             </h1>
             <br>
