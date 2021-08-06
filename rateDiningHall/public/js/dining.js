@@ -87,3 +87,7 @@ const createDiningHallInfo = (data, x) => {
             </div>
             `;
 }
+
+const changeWindow = (event) => {
+    window.location = "index.html";
+}
