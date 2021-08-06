@@ -17,6 +17,7 @@
       <script src="/__/firebase/init.js?useEmulator=true"></script>
       <script src="js/signIn.js"></script>
       <script src="js/displayCard.js"></script>
+      <script src="js/collegeAndDining.js"></script>
    </head>
    <body>
       <section class="hero eating-banner">
@@ -41,7 +42,7 @@
          <div class="columns is-mobile">
             <div class="column is-half is-offset-one-quarter">
                <h1 class="search-title"> A better way to choose your dining hall </h1>
-               <input id="search" class="input is-hovered is-large is-rounded" type="text" placeholder="Search for your school">
+               <input id="search" class="input is-hovered is-large is-rounded" type="text" placeholder="Search for your school" onchange = "openCollege(search.value)">
                <!--
                   <div class="columns is-mobile"><div class = "column"><a id="review-link" ref="https://www.google.com">Write a Review</a></div><div class = "column"><a id="review-link" ref="https://www.google.com">Write a Review</a></div></div><a href="college.html">test page</a>
                   GRACE USE THIS LINK
