@@ -132,8 +132,5 @@ const createDiningHallInfo = () => {
                               </div>
                           </div>
             </div>
-            <hr>
-            <p id = "collegeInfo">
-            Best dish at this dining hall:
-            </p>`;
+            `;
 }

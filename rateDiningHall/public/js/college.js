@@ -66,18 +66,19 @@ makeCollegeCard = (data) => {
               ${name}
             </h1>
             <br>
-            <p id = "collegeInfo">
-            Overall:
-            </p>
-            <p id = "collegeInfo">
-            Sort by:
-            </p>
-            <p id = "collegeInfo">
-            Best dining hall on campus:
-            </p>
-            <p id = "collegeInfo">
-            Best meal on campus:
-            </p>
+            <div style = "width: 100%;">
+                          <div style="width: 30%; float: left;">
+                            <p id = "collegeInfo"> Overall: </p>
+                          </div>
+                          <div style="margin-left: 30%;"> 
+                              <div style="width: 150px;">
+                                <div style="width: 50%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
+                                </div>
+                                <div style="margin-left: 50%;" id = "forkRatingRight"> 
+                                </div>
+                              </div>
+                          </div>
+            </div>
           </div>`;
 }
 
