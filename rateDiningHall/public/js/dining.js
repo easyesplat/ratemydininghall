@@ -2,6 +2,7 @@ var nameOfHall = window.localStorage.getItem("keyLocalStorage");
 let index = nameOfHall.indexOf("/");
 var collegeName = nameOfHall.substr(0, index);
 var hallName = nameOfHall.substr(nameOfHall.indexOf("/", index+1)+1);
+var overall = 0;
 
 
 
@@ -9,8 +10,8 @@ window.onload = (event) => {
     var reviewsRef = firebase.database().ref(`colleges/${collegeName}`);
     reviewsRef.on('value', (snapshot) => {
        const data = snapshot.val();
-       renderData(data["dininghall"][hallName]);
-       createDiningHallInfo(data["dininghall"][hallName]);
+       let x = renderData(data["dininghall"][hallName]);
+       createDiningHallInfo(data["dininghall"][hallName], x);
        changePicture(data["photos"]);
     });
 };
@@ -27,21 +28,26 @@ changePicture = (data) => {
 }
 
 const renderData = (data) => {
+    let x = 0;
+    let y = 0;
     const destination = document.querySelector("#appDining");
     destination.innerHTML = "";
     for (let key in data) {
             const val = data[key];
+            x = x+ parseInt(val.Rating);
+            y = y+1;
             destination.innerHTML += createBox(val);
     }
+    return ((x/5)/y)*100;
 };
 
 const createBox = (review) => {
-
+    let rate = (parseInt(review.Rating)/5)*100;
     return `<div class = "box" style = "padding: 20px;"> 
                               <div style="width: 150px;">
-                                <div style="width: 50%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
+                                <div style="width: ${rate}%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
                                 </div>
-                                <div style="margin-left: 50%;" id = "forkRatingRight"> 
+                                <div style="margin-left: ${rate}%;" id = "forkRatingRight"> 
                                 </div>
                               </div>
                               <div>
@@ -60,7 +66,7 @@ const createBox = (review) => {
                  </div>`;
 }
 
-const createDiningHallInfo = () => {
+const createDiningHallInfo = (data, x) => {
     let diningInfoCard = document.querySelector("#appDiningHallInfo");
     diningInfoCard.innerHTML = `<h1 id = "collegeTitleCard">
               ${hallName}
@@ -72,62 +78,9 @@ const createDiningHallInfo = () => {
                           </div>
                           <div style="margin-left: 30%;"> 
                               <div style="width: 150px;">
-                                <div style="width: 50%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
+                                <div style="width: ${x}%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
                                 </div>
-                                <div style="margin-left: 50%;" id = "forkRatingRight"> 
-                                </div>
-                              </div>
-                          </div>
-            </div>
-            <hr>
-            <div style = "width: 100%;">
-                          <div style="width: 30%; float: left;">
-                            <p id = "collegeInfo"> Breakfast: </p>
-                          </div>
-                          <div style="margin-left: 30%;"> 
-                              <div style="width: 150px;">
-                                <div style="width: 50%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
-                                </div>
-                                <div style="margin-left: 50%;" id = "forkRatingRight"> 
-                                </div>
-                              </div>
-                          </div>
-            </div>
-            <div style = "width: 100%;">
-                          <div style="width: 30%; float: left;">
-                            <p id = "collegeInfo"> Lunch: </p>
-                          </div>
-                          <div style="margin-left: 30%;"> 
-                              <div style="width: 150px;">
-                                <div style="width: 50%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
-                                </div>
-                                <div style="margin-left: 50%;" id = "forkRatingRight"> 
-                                </div>
-                              </div>
-                          </div>
-            </div>
-            <div style = "width: 100%;">
-                          <div style="width: 30%; float: left;">
-                            <p id = "collegeInfo"> Dinner: </p>
-                          </div>
-                          <div style="margin-left: 30%;"> 
-                              <div style="width: 150px;">
-                                <div style="width: 50%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
-                                </div>
-                                <div style="margin-left: 50%;" id = "forkRatingRight"> 
-                                </div>
-                              </div>
-                          </div>
-            </div>
-            <div style = "width: 100%;">
-                          <div style="width: 30%; float: left;">
-                            <p id = "collegeInfo"> Dessert: </p>
-                          </div>
-                          <div style="margin-left: 30%;"> 
-                              <div style="width: 150px;">
-                                <div style="width: 50%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
-                                </div>
-                                <div style="margin-left: 50%;" id = "forkRatingRight"> 
+                                <div style="margin-left: ${x}%;" id = "forkRatingRight"> 
                                 </div>
                               </div>
                           </div>
