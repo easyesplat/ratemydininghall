@@ -1,238 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RateMyDiningHall</title>
-    <!--<script src="https://use.fontawesome.com/5cd833ef09.js"></script>-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Import the webpage's stylesheet -->
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="/__/firebase/8.3.1/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
-    <script src="/__/firebase/8.3.1/firebase-database.js"></script>
-    <script src="/__/firebase/init.js?useEmulator=true"></script>
-    <script src="js/signIn.js"></script>
-    <script src="js/displayCard.js"></script>
-    <script src="js/collegeAndDining.js"></script>
-  </head>
-  <body>
-    <section class="hero eating-banner">
-      <div class="hero-body">
-        <nav class="level">
-          <div class="level-left">
-            <figure class="image">
-                <a href="index.html">
-                    <img
-                      style="height: 112px; width: 336px;"
-                      src="images/Rate My Dining Hall Full Logo White.png">
-                </a>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>RateMyDiningHall</title>
+      <!--<script src="https://use.fontawesome.com/5cd833ef09.js"></script>-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!-- Import the webpage's stylesheet -->
+      <link rel="stylesheet" href="css/style.css" />
+      <script src="/__/firebase/8.3.1/firebase-app.js"></script>
+      <!-- include only the Firebase features as you need -->
+      <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
+      <script src="/__/firebase/8.3.1/firebase-database.js"></script>
+      <script src="/__/firebase/init.js?useEmulator=true"></script>
+      <script src="js/signIn.js"></script>
+      <script src="js/displayCard.js"></script>
+      <script src="js/collegeAndDining.js"></script>
+   </head>
+   <body>
+      <section class="hero eating-banner">
+         <div class="hero-body">
+            <nav class="level">
+               <div class="level-left">
+                  <figure class="image">
+                     <a href="index.html">
+                     <img
+                        style="height: 112px; width: 336px;"
+                        src="images/Rate My Dining Hall Full Logo White.png">
+                     </a>
+                  </figure>
+                  <!-- <p class="eating-title has-text-left-desktop"> Rate My Dining Hall </p>-->
+               </div>
+               <div class="level-right">
+                  <!--<button id="log-in" class="button" onclick="signIn()">Log In</button>-->
+               </div>
+            </nav>
+         </div>
+         <div class="container"></div>
+         <div class="columns is-mobile">
+            <div class="column is-half is-offset-one-quarter">
+               <h1 class="search-title"> A better way to choose your dining hall </h1>
+               <input id="search" class="input is-hovered is-large is-rounded" type="text" placeholder="Search for your school" onchange = "openCollege(search.value)">
+               <!--
+                  <div class="columns is-mobile"><div class = "column"><a id="review-link" ref="https://www.google.com">Write a Review</a></div><div class = "column"><a id="review-link" ref="https://www.google.com">Write a Review</a></div></div><a href="college.html">test page</a>
+                  GRACE USE THIS LINK
+                  https://curlyman.glitch.me/college.html
+                  -->
+            </div>
+         </div>
+         <div class="container">
+            <a id="review-link" onclick="signIn()">Write a Review</a>
+         </div>
+         <div class="container"></div>
+         <div class="container">
+            <figure class="image is-48x48">
+               <img src="https://content.invisioncic.com/p289038/monthly_2020_04/arrow-down.gif.c819a92ab7162c828e944727a545dcd7.gif">
             </figure>
-            <!-- <p class="eating-title has-text-left-desktop"> Rate My Dining Hall </p>-->
-          </div>
-          <div class="level-right">  
-            <!--<button id="log-in" class="button" onclick="signIn()">Log In</button>-->
-          </div>
-        </nav>
-      </div>
-      <div class="container"></div>
-      <div class="columns is-mobile">
-        <div class="column is-half is-offset-one-quarter">
-          <h1 class="search-title"> A better way to choose your dining hall </h1>
-          <input id="search" class="input is-hovered is-large is-rounded" type="text" placeholder="Search for your school" onchange = "openCollege(search.value)">
-          <!--
-          <div class="columns is-mobile"><div class = "column"><a id="review-link" ref="https://www.google.com">Write a Review</a></div><div class = "column"><a id="review-link" ref="https://www.google.com">Write a Review</a></div></div><a href="college.html">test page</a> 
-          GRACE USE THIS LINK
-          https://curlyman.glitch.me/college.html
-          -->
-        </div>
-      </div>
-      <div class="container">
-        <a id="review-link" onclick="signIn()">Write a Review</a>
-      </div>
-      <div class="container"></div>
-      <div class="container">
-        <figure class="image is-48x48">
-          <img src="https://content.invisioncic.com/p289038/monthly_2020_04/arrow-down.gif.c819a92ab7162c828e944727a545dcd7.gif">
-        </figure>
-      </div>
-    </section>
-    <section class="section">
-      <h1 class="title has-text-centered">Most Reviewed Schools</h1>
-    </section>
-    <!-- ROW 1 -->
-    <div class="columns is-centered is-variable is-5">
-      <!-- COLUMN 1 -->
-      <div class="column is-one-fifth">
-        <!-- CARD -->
-        <a href="/college.html">
-          <div class="card">
-            <div id="img1" class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg" alt="Spirited Away">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                <p id="name1" class="title is-4">Times Square</p>
-                <p id="dh1" class="subtitle is-6">For the classic tourist experience, head to Times Square to be greeted by a sea of flashing lights and people. </p>
-              </div>
-            </div>
-          </div>
-      </div>
-      </a>
-      <!-- Column 2 -->
-      <div class="column is-one-fifth">
-        <!-- CARD -->
-        <a href="/college.html">
-          <div class="card">
-            <div id="img2" class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/27/58/b7.jpg" alt="Spirited Away">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                <p id="name2" class="title is-4">Central Park</p>
-                <p id="dh2" class="subtitle is-6">Central Park provides the perfect green oasis in the busy city, perfect for reading or a relaxed stroll. </p>
-              </div>
-            </div>
-          </div>
-      </div>
-      </a>
-      <!-- Column 3 -->
-      <div class="column is-one-fifth">
-        <!-- CARD -->
-        <a href="/college.html">
-          <div class="card">
-            <div id="img3" class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://static.toiimg.com/photo/77757963.cms" alt="Spirited Away">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                <p id="name3" class="title is-4">The Statue of Liberty</p>
-                <p id="dh3" class="subtitle is-6">Visit the famous statue for a beautiful view and to reflect on the history of New York. </p>
-              </div>
-            </div>
-          </div>
+         </div>
+      </section>
+      <section class="section">
+         <h1 class="title has-text-centered">Most Reviewed Schools</h1>
+      </section>
+      <!-- ROW 1 -->
+      <div class="columns is-centered is-variable is-5">
+         <!-- COLUMN 1 -->
+         <div class="column is-one-fifth">
+            <!-- CARD -->
+            <a href="/college.html">
+               <div class="card">
+                  <div id="img1" class="card-image">
+                     <figure class="image is-4by3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg" alt="Spirited Away">
+                     </figure>
+                  </div>
+                  <div class="card-content">
+                     <div class="content">
+                        <p id="name1" class="title is-4">Times Square</p>
+                        <p id="dh1" class="subtitle is-6">For the classic tourist experience, head to Times Square to be greeted by a sea of flashing lights and people. </p>
+                     </div>
+                  </div>
+               </div>
+         </div>
+         </a>
+         <!-- Column 2 -->
+         <div class="column is-one-fifth">
+            <!-- CARD -->
+            <a href="/college.html">
+               <div class="card">
+                  <div id="img2" class="card-image">
+                     <figure class="image is-4by3">
+                        <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/27/58/b7.jpg" alt="Spirited Away">
+                     </figure>
+                  </div>
+                  <div class="card-content">
+                     <div class="content">
+                        <p id="name2" class="title is-4">Central Park</p>
+                        <p id="dh2" class="subtitle is-6">Central Park provides the perfect green oasis in the busy city, perfect for reading or a relaxed stroll. </p>
+                     </div>
+                  </div>
+               </div>
+         </div>
+         </a>
+         <!-- Column 3 -->
+         <div class="column is-one-fifth">
+            <!-- CARD -->
+            <a href="/college.html">
+               <div class="card">
+                  <div id="img3" class="card-image">
+                     <figure class="image is-4by3">
+                        <img src="https://static.toiimg.com/photo/77757963.cms" alt="Spirited Away">
+                     </figure>
+                  </div>
+                  <div class="card-content">
+                     <div class="content">
+                        <p id="name3" class="title is-4">The Statue of Liberty</p>
+                        <p id="dh3" class="subtitle is-6">Visit the famous statue for a beautiful view and to reflect on the history of New York. </p>
+                     </div>
+                  </div>
+               </div>
+         </div>
+         </a>
+         <!-- Column 4 -->
+         <div class="column is-one-fifth">
+            <!-- CARD -->
+            <a href="/college.html">
+               <div class="card">
+                  <div id="img4" class="card-image">
+                     <figure class="image is-4by3">
+                        <img src="https://static.toiimg.com/photo/77757963.cms" alt="Spirited Away">
+                     </figure>
+                  </div>
+                  <div class="card-content">
+                     <div class="content">
+                        <p id="name4" class="title is-4">The Statue of Liberty</p>
+                        <p id="dh4" class="subtitle is-6">Visit the famous statue for a beautiful view and to reflect on the history of New York. </p>
+                     </div>
+                  </div>
+               </div>
+         </div>
       </div>
       </a>
-      <!-- Column 4 -->
-      <div class="column is-one-fifth">
-        <!-- CARD -->
-        <a href="/college.html">
-          <div class="card">
-            <div id="img4" class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://static.toiimg.com/photo/77757963.cms" alt="Spirited Away">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                <p id="name4" class="title is-4">The Statue of Liberty</p>
-                <p id="dh4" class="subtitle is-6">Visit the famous statue for a beautiful view and to reflect on the history of New York. </p>
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
-    </a>
-    <!-- ROW 2 -->
-    <div class="columns is-centered is-variable is-5">
-      <!-- COLUMN 1 -->
-      <div class="column is-one-fifth">
-        <!-- CARD -->
-        <a href="/college.html">
-          <div class="card">
-            <div id="img5" class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg" alt="Spirited Away">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                <p id="name5" class="title is-4">Times Sqaure</p>
-                <p id="dh5" class="subtitle is-6">For the classic tourist experience, head to Times Square to be greeted by a sea of flashing lights and people. </p>
-              </div>
-            </div>
-          </div>
+      <!-- ROW 2 -->
+      <div class="columns is-centered is-variable is-5">
+         <!-- COLUMN 1 -->
+         <div class="column is-one-fifth">
+            <!-- CARD -->
+            <a href="/college.html">
+               <div class="card">
+                  <div id="img5" class="card-image">
+                     <figure class="image is-4by3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg" alt="Spirited Away">
+                     </figure>
+                  </div>
+                  <div class="card-content">
+                     <div class="content">
+                        <p id="name5" class="title is-4">Times Sqaure</p>
+                        <p id="dh5" class="subtitle is-6">For the classic tourist experience, head to Times Square to be greeted by a sea of flashing lights and people. </p>
+                     </div>
+                  </div>
+               </div>
+         </div>
+         </a>
+         <!-- Column 2 -->
+         <div class="column is-one-fifth">
+            <!-- CARD -->
+            <a href="/college.html">
+               <div class="card">
+                  <div id="img6" class="card-image">
+                     <figure class="image is-4by3">
+                        <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/27/58/b7.jpg" alt="Spirited Away">
+                     </figure>
+                  </div>
+                  <div class="card-content">
+                     <div class="content">
+                        <p id="name6" class="title is-4">Central Park</p>
+                        <p id="dh6" class="subtitle is-6">Central Park provides the perfect green oasis in the busy city, perfect for reading or a relaxed stroll. </p>
+                     </div>
+                  </div>
+               </div>
+         </div>
+         </a>
+         <!-- Column 3 -->
+         <div class="column is-one-fifth">
+            <!-- CARD -->
+            <a href="/college.html">
+               <div class="card">
+                  <div id="img7" class="card-image">
+                     <figure class="image is-4by3">
+                        <img src="https://static.toiimg.com/photo/77757963.cms" alt="Spirited Away">
+                     </figure>
+                  </div>
+                  <div class="card-content">
+                     <div class="content">
+                        <p id="name7" class="title is-4">The Statue of Liberty</p>
+                        <p id="dh7" class="subtitle is-6">Visit the famous statue for a beautiful view and to reflect on the history of New York. </p>
+                     </div>
+                  </div>
+               </div>
+         </div>
+         </a>
+         <!-- Column 4 -->
+         <div class="column is-one-fifth">
+            <!-- CARD -->
+            <a href="/college.html">
+               <div class="card">
+                  <div id="img8" class="card-image">
+                     <figure class="image is-4by3">
+                        <img src="https://static.toiimg.com/photo/77757963.cms" alt="Down Arrow">
+                     </figure>
+                  </div>
+                  <div class="card-content">
+                     <div class="content">
+                        <p id="name8" class="title is-4">The Statue of Liberty</p>
+                        <p id="dh8" class="subtitle is-6">Visit the famous statue for a beautiful view and to reflect on the history of New York. </p>
+                     </div>
+                  </div>
+               </div>
+         </div>
       </div>
       </a>
-      <!-- Column 2 -->
-      <div class="column is-one-fifth">
-        <!-- CARD -->
-        <a href="/college.html">
-          <div class="card">
-            <div id="img6" class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/27/58/b7.jpg" alt="Spirited Away">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                <p id="name6" class="title is-4">Central Park</p>
-                <p id="dh6" class="subtitle is-6">Central Park provides the perfect green oasis in the busy city, perfect for reading or a relaxed stroll. </p>
-              </div>
-            </div>
-          </div>
-      </div>
-      </a>
-      <!-- Column 3 -->
-      <div class="column is-one-fifth">
-        <!-- CARD -->
-        <a href="/college.html">
-          <div class="card">
-            <div id="img7" class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://static.toiimg.com/photo/77757963.cms" alt="Spirited Away">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                <p id="name7" class="title is-4">The Statue of Liberty</p>
-                <p id="dh7" class="subtitle is-6">Visit the famous statue for a beautiful view and to reflect on the history of New York. </p>
-              </div>
-            </div>
-          </div>
-      </div>
-      </a>
-      <!-- Column 4 -->
-      <div class="column is-one-fifth">
-        <!-- CARD -->
-        <a href="/college.html">
-          <div class="card">
-            <div id="img8" class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://static.toiimg.com/photo/77757963.cms" alt="Down Arrow">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                <p id="name8" class="title is-4">The Statue of Liberty</p>
-                <p id="dh8" class="subtitle is-6">Visit the famous statue for a beautiful view and to reflect on the history of New York. </p>
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
-    </a>
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p>
-          <strong>About us: </strong>
-          <a href="https://google.com">RateMyDiningHall</a>
-          <br>
-          <a href="mailto:ratemadininghall@gmail.com" class="fa fa-google"></a>
-          <a href="https://www.instagram.com/ratemydininghall/" class="fa fa-instagram"></a>
-        </p>
-      </div>
-    </footer>
-  </body>
-  <!-- Import the webpage's javascript file -->
-  <!--<script src="/script.js" defer></script>-->
+      <footer class="footer">
+         <div class="content has-text-centered">
+            <p>
+               <strong>About us: </strong>
+               <a href="https://google.com">RateMyDiningHall</a>
+               <br>
+               <a href="mailto:ratemadininghall@gmail.com" class="fa fa-google"></a>
+               <a href="https://www.instagram.com/ratemydininghall/" class="fa fa-instagram"></a>
+            </p>
+         </div>
+      </footer>
+   </body>
+   <!-- Import the webpage's javascript file -->
+   <!--<script src="/script.js" defer></script>-->
 </html>
