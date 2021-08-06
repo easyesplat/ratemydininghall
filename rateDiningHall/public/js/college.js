@@ -73,3 +73,7 @@ const goToHall = (key) => {
     window.localStorage.setItem("keyLocalStorage", name + "/dininghall/"+ key);  
     window.location = "diningHall.html";
 };
+
+const changeWindow = (event) => {
+    window.location = "index.html";
+}

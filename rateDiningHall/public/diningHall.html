@@ -22,20 +22,22 @@
       <div class="hero-body">
         <div class= "search is-offset-one-quarter">
           <div id="search-container">
-            <object align= right>
-              <form method="POST" action="#">
-                <input id="topSearch" class="input is-hovered is-rounded" type="text" placeholder="Search for your school"> 
-              </form>
+            <object align="right">
+              <!--<form method="POST" action="#">-->
+                <input id="topSearch" class="input is-hovered is-rounded" type="text" placeholder="Search for your school" onchange =  "openCollege(topSearch.value)" />
+              <!--</form>-->
             </object>
-            <a href="index.html">
-                <figure class="image">
-                <img style = "height: 56px; width: 168px;" src = "https://cdn.glitch.com/7050ff91-dc68-422e-8f38-2c104ea2e7e7%2FRate%20My%20Dining%20Hall%20Full%20Logo.png?v=1627927002683" alt = "Rate My Dining Hall Logo">
-                </figure>
-            </a>
           </div>
+            <object align="left">
+                <img
+                      style="height: 56px; width: 168px;"
+                      src="images/Rate My Dining Hall Full Logo.png"
+                      onclick = "changeWindow()"
+                      >
+            </object>
         </div>
-        <div id = "diningImage">
-       </div>
+        <!--<div id = "diningImage">
+       </div>-->
       </div>
     </section>
     
@@ -45,10 +47,13 @@
         <!--Dining card info will render here-->
           </div>
         </div>
+
         <div style="margin-left: 30%;"> 
             <h1 id = "diningReviews">
               Dining Halls
             </h1>
+            <div id = "diningImage">
+            </div>
             <div id="appDining" style = "padding: 30px;">
               <!-- Review cards will render here (copy and paste this to javascript)-->
               </div>

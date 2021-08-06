@@ -104,3 +104,7 @@ const ratingValue = () => {
         }
     }
 }
+
+const changeWindow = (event) => {
+    window.location = "index.html";
+}
