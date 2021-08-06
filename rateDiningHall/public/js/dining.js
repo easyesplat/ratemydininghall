@@ -1,13 +1,30 @@
 var nameOfHall = window.localStorage.getItem("keyLocalStorage");
+let index = nameOfHall.indexOf("/");
+var collegeName = nameOfHall.substr(0, index);
+var hallName = nameOfHall.substr(nameOfHall.indexOf("/", index+1)+1);
+
+
 
 window.onload = (event) => {
-    var reviewsRef = firebase.database().ref(`colleges/${nameOfHall}`);
+    var reviewsRef = firebase.database().ref(`colleges/${collegeName}`);
     reviewsRef.on('value', (snapshot) => {
        const data = snapshot.val();
-       renderData(data);
-       createDiningHallInfo();
+       renderData(data["dininghall"][hallName]);
+       createDiningHallInfo(data["dininghall"][hallName]);
+       changePicture(data["photos"]);
     });
 };
+
+changePicture = (data) => {
+    let img;
+    for(let i in data){
+        img=data[i].Picture;
+    }
+    myImage = document.querySelector("#diningImage");
+    myImage.innerHTML = `<figure class="image">
+              <img style = "height: 500px; padding-top: 25px;" src = "${img}" alt = "college dining hall">
+            </figure>`;
+}
 
 const renderData = (data) => {
     const destination = document.querySelector("#appDining");
@@ -45,7 +62,7 @@ const createBox = (review) => {
 
 const createDiningHallInfo = () => {
     return `<h1 id = "collegeTitleCard">
-              Hi
+              ${hallName}
             </h1>
             <br>
             <div style = "width: 100%;">

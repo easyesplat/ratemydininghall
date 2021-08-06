@@ -1,14 +1,26 @@
 var name = window.localStorage.getItem("dataLocalStorage");
 
 window.onload = (event) => {
-    var diningHallsRef = firebase.database().ref(`colleges/${name}/dininghall`);
+    var diningHallsRef = firebase.database().ref(`colleges/${name}`);
     console.log(diningHallsRef);
     diningHallsRef.on('value', (snapshot) => {
        const data = snapshot.val();
-       renderData(data, "#diningHallCards");
-       makeCollegeCard(data);
+       renderData(data["dininghall"], "#diningHallCards");
+       makeCollegeCard(data["dininghall"]);
+       changePicture(data["photos"]);
     });
 };
+
+changePicture = (data) => {
+    let img;
+    for(let i in data){
+        img=data[i].Picture;
+    }
+    myImage = document.querySelector("#collegeImage");
+    myImage.innerHTML = `<figure class="image">
+              <img style = "height: 500px; padding-top: 25px;" src = "${img}" alt = "college dining hall">
+            </figure>`;
+}
 
 const renderData = (data, location) => {
     const destination = document.querySelector(location);
