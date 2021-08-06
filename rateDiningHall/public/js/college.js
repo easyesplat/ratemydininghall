@@ -5,7 +5,7 @@ window.onload = (event) => {
     console.log(diningHallsRef);
     diningHallsRef.on('value', (snapshot) => {
        const data = snapshot.val();
-       renderData(data["dininghall"], "#diningHallCards");
+       renderData(data["dininghall"]);
        makeCollegeCard(data["dininghall"]);
        changePicture(data["photos"]);
     });
@@ -18,31 +18,32 @@ changePicture = (data) => {
     }
     myImage = document.querySelector("#collegeImage");
     myImage.innerHTML = `<figure class="image">
-              <img style = "height: 500px; padding-top: 25px;" src = "${img}" alt = "college dining hall">
+              <img style = "max-width: 55%; height: auto; display: block; margin-left: auto; margin-right:auto" src = "${img}" alt = "college dining hall">
             </figure>`;
 }
 
-const renderData = (data, location) => {
-    const destination = document.querySelector(location);
+const renderData = (data) => {
+    const destination = document.querySelector('#diningHallCards');
     destination.innerHTML = "";
-    if(location == '#diningHallCards')
-    {
+
         for (let key in data) {
             const val = data[key];
-            destination.innerHTML += createCard(val, key);
+            let x = 0;
+            let y = 0;
+
+            for(let key2 in val)
+            {
+                let review = val[key2];
+                console.log(review.Rating);
+                x = x+parseInt(review.Rating);
+                y = y+1;
+            }
+            x = ((x/5)/y)*100;
+            destination.innerHTML += createCard(val, key, x);
         }
-    }
-    else if(location == '#appDining')
-    {
-        for (let key in data) {
-            const val = data[key];
-            destination.innerHTML += createBox(val);
-        }
-    }
 };
 
-const createCard = (hall, key) => {
-
+const createCard = (hall, key, x) => {
     return `<div class = "card is-small has-background-white-ter" style = "padding: 20px;" onclick = "goToHall('${key}')"> 
                         <div style = "width: 100%;">
                           <div style="width: 30%; float: left;">
@@ -50,9 +51,9 @@ const createCard = (hall, key) => {
                           </div>
                           <div style="margin-left: 30%;"> 
                               <div style="width: 150px;">
-                                <div style="width: 50%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
+                                <div style="width: ${x}%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
                                 </div>
-                                <div style="margin-left: 50%;" id = "forkRatingRight"> 
+                                <div style="margin-left: ${x}%;" id = "forkRatingRight"> 
                                 </div>
                               </div>
                           </div>
@@ -65,21 +66,7 @@ makeCollegeCard = (data) => {
     collegeCard.innerHTML = `<h1 id = "collegeTitleCard">
               ${name}
             </h1>
-            <br>
-            <div style = "width: 100%;">
-                          <div style="width: 30%; float: left;">
-                            <p id = "collegeInfo"> Overall: </p>
-                          </div>
-                          <div style="margin-left: 30%;"> 
-                              <div style="width: 150px;">
-                                <div style="width: 50%; float: left; padding-bottom: 20px;" id = "forkRatingLeft"> 
-                                </div>
-                                <div style="margin-left: 50%;" id = "forkRatingRight"> 
-                                </div>
-                              </div>
-                          </div>
-            </div>
-          </div>`;
+            `;
 }
 
 const goToHall = (key) => {
